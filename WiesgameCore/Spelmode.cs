@@ -13,6 +13,7 @@ namespace WiesgameCore
         public int Prioriteit { get; private set; }
         public bool hasTroef { get; private set; }
 
+        public static Spelmode PASS = new Spelmode(10, "Pas", -1);
         public static Spelmode DUO = new Spelmode(0, "Duo", 2);
         public static Spelmode SOLO5 = new Spelmode(1, "Solo 5", 1);
         public static Spelmode SOLO9 = new Spelmode(2, "Solo 9", 3);
@@ -22,6 +23,7 @@ namespace WiesgameCore
         public static Spelmode TROELA = new Spelmode(6, "Troela", 7);
         public static Spelmode SOLOLOEMP = new Spelmode(7, "Sololoemp", 8);
         public static Spelmode SOLOSLUM = new Spelmode(8, "Soloslum", 9);
+        public static Spelmode DAMME = new Spelmode(9, "Veu de damme", -1, false);
 
         private Spelmode(int id, string name, int prioriteit, bool hasTroef = true)
         {

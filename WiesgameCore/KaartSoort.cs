@@ -19,5 +19,26 @@ namespace WiesgameCore
         {
             this.naam = naam;
         }
+
+        public static KaartSoort ForID(int id)
+        {
+            KaartSoort soort = null;
+            switch (id)
+            {
+                case 0:
+                    soort = KaartSoort.HARTES;
+                    break;
+                case 1:
+                    soort = KaartSoort.KLAVERS;
+                    break;
+                case 2:
+                    soort = KaartSoort.KOEKES;
+                    break;
+                case 3:
+                    soort = KaartSoort.SCHORPES;
+                    break;
+            }
+            return soort;
+        }
     }
 }

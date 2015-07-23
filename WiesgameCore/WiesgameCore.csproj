@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Boek.cs" />
     <Compile Include="Comparator.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="Kaart.cs" />
     <Compile Include="KaartSoort.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
