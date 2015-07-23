@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wiesgame", "Wiesgame\Wiesgame.csproj", "{EDA3F354-8525-437D-805A-DFDA5ED5EF67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiesGameServer", "WiesGameServer\WiesGameServer.csproj", "{7121AF0A-B2F7-47CB-9E0C-C4FDFDDFFF6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiesgameCore", "WiesgameCore\WiesgameCore.csproj", "{33E4877F-94C5-4D2D-B147-0BD272E9F272}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://user:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Wiesgame\\Wiesgame.csproj
+		SccProjectName1 = Wiesgame
+		SccLocalPath1 = Wiesgame
+		SccProjectUniqueName2 = WiesgameCore\\WiesgameCore.csproj
+		SccProjectName2 = WiesgameCore
+		SccLocalPath2 = WiesgameCore
+		SccProjectUniqueName3 = WiesGameServer\\WiesGameServer.csproj
+		SccProjectName3 = WiesGameServer
+		SccLocalPath3 = WiesGameServer
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDA3F354-8525-437D-805A-DFDA5ED5EF67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDA3F354-8525-437D-805A-DFDA5ED5EF67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDA3F354-8525-437D-805A-DFDA5ED5EF67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDA3F354-8525-437D-805A-DFDA5ED5EF67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7121AF0A-B2F7-47CB-9E0C-C4FDFDDFFF6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7121AF0A-B2F7-47CB-9E0C-C4FDFDDFFF6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7121AF0A-B2F7-47CB-9E0C-C4FDFDDFFF6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7121AF0A-B2F7-47CB-9E0C-C4FDFDDFFF6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33E4877F-94C5-4D2D-B147-0BD272E9F272}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33E4877F-94C5-4D2D-B147-0BD272E9F272}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33E4877F-94C5-4D2D-B147-0BD272E9F272}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33E4877F-94C5-4D2D-B147-0BD272E9F272}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
