@@ -23,7 +23,7 @@ namespace WiesgameCore
             }
             else
             { //Wel rekening me troef
-                foreach(Kaart k in slag.Kaarten)
+                foreach (Kaart k in slag.Kaarten)
                 {
                     if (k.Soort != first && k.Soort != troef)
                         continue;
@@ -35,6 +35,33 @@ namespace WiesgameCore
             }
 
             return spel.Spelers[slag.Kaarten.IndexOf(hoogste)];
+        }
+
+        public static KeyValuePair<Spelmode, List<Speler>> WinnerMode(Spel spel)
+        {
+            KeyValuePair<Spelmode, List<Speler>> result;
+
+            var gekozenModes = spel.GekozenModes;
+
+            Spelmode hoogste = gekozenModes.Keys.ElementAt(0);
+            List<Speler> spelers = new List<Speler>();
+            spelers.Add(gekozenModes.Values.ElementAt(0));
+
+            foreach(KeyValuePair<Spelmode, Speler> kvp in gekozenModes)
+                if(kvp.Key.Prioriteit > hoogste.Prioriteit)
+                {
+                    spelers.Clear();
+                    spelers.Add(kvp.Value);
+                    hoogste = kvp.Key;
+                }
+                else if(kvp.Key.Prioriteit == hoogste.Prioriteit && !spelers.Contains(kvp.Value))
+                {
+                    spelers.Add(kvp.Value);
+                }
+
+            result = new KeyValuePair<Spelmode, List<Speler>>(hoogste, spelers);
+
+            return result;
         }
 
     }
