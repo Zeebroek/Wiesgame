@@ -23,7 +23,7 @@ namespace WiesgameCore
             List<Kaart> boek = new List<Kaart>();
 
             //Vullen boek kaarten
-            for(int i = 1;i<=52;i++)
+            for(int i = 1;i<=13;i++)
                 for(int k = 0;k<4;k++)
                 {
                     Kaart kaart = new Kaart(i, KaartSoort.ForID(k));
@@ -44,9 +44,11 @@ namespace WiesgameCore
             temp.AddRange(boek);
             boek.Clear();
             for (int i = temp.Count; i > temp.Count - afgepakt;i-- )
+            {
                 boek.Add(temp.ElementAt(i));
+                temp.Remove(temp.ElementAt(i));
+            }
             foreach (Kaart k in temp)
-                if(!boek.Contains(k))
                     boek.Add(k);
 
             if (boek.Count != 52)
@@ -56,8 +58,11 @@ namespace WiesgameCore
             //Verdelen
             for (int i = 0; i < 3;i++ )
                 for (int k = 0; k < 4; k++)
-                    for (int l = 0; l < (i == 2 ? 6 : 5); l++)
+                    for (int l = 0; l < (i == 2 ? 5 : 4); l++)
+                    {
                         result[k].Add(boek.ElementAt(0));
+                        boek.Remove(boek.ElementAt(0));
+                    }
 
                 return result;
         }

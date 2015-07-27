@@ -36,6 +36,9 @@ namespace WiesgameCore
             Dictionary<int, List<Kaart>> result = Boek.Deling(afgepakt);
             foreach (KeyValuePair<int, List<Kaart>> kvp in result)
                 Kaarten.Add(Spelers[kvp.Key], kvp.Value);
+
+            foreach (Speler s in spelers)
+                s.Client.GetClientProxy<IWiesGameClient>().ReceiveHand(Kaarten[s]);
         }
 
 
@@ -70,19 +73,38 @@ namespace WiesgameCore
             return result;
         }
 
+        public void KiesMode(Spelmode s)
+        {
+            Speler sp = Spelers[GekozenModes.Count];
+            GekozenModes.Add(s, sp);
+            SendVolgendeKies();        
+        }
+
         public void SendVolgendeKies()
         {
-            Speler s;
-            if (GekozenModes.Count != 4)
-                s = Spelers[GekozenModes.Count];
-            else
+            try
             {
-                //Begin spel!
-                var result = Comparator.WinnerMode(this);
-                spelmode = result.Key;
-                team = result.Value;
-                isFirstTurn = true;
-                SendTurn();
+                Speler s;
+                if (GekozenModes.Count != 4)
+                {
+                    s = Spelers[GekozenModes.Count];
+                    s.Client.GetClientProxy<IWiesGameClient>().ReceiveModes(BeschikbareModes(s));
+                }
+                else
+                {
+                    //Begin spel!
+                    var result = Comparator.WinnerMode(this);
+                    spelmode = result.Key;
+                    team = result.Value;
+                    foreach (Speler sp in spelers)
+                        sp.Client.GetClientProxy<IWiesGameClient>().ReceiveWinnerMode(spelmode, team);
+                    isFirstTurn = true;
+                    SendTurn();
+                }
+            } catch(Exception ex)
+            {
+                int i = 8;
+                i++;
             }
         }
 

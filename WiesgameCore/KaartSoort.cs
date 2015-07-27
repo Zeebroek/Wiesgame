@@ -14,7 +14,9 @@ namespace WiesgameCore
         public static KaartSoort SCHORPES = new KaartSoort("Schorpes");
         public static KaartSoort KLAVERS = new KaartSoort("Klavers");
         public static KaartSoort HARTES = new KaartSoort("Hartes");
-        public static KaartSoort KOEKES = new KaartSoort("Koekes");
+        public static KaartSoort KOEKES = new KaartSoort("Koeke");
+
+        public string Naam { get { return naam; } }
 
         private KaartSoort(string naam)
         {

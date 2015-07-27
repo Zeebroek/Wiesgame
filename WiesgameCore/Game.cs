@@ -25,6 +25,8 @@ namespace WiesgameCore
         public void StartSpel()
         {
             CurrentSpel = new Spel(this, spelers, 0);
+
+            CurrentSpel.SendVolgendeKies();
         }
     }
 }

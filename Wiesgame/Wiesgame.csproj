@@ -43,6 +43,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -60,6 +61,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="GameWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -69,6 +74,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Client.cs" />
+    <Compile Include="GameWindow.xaml.cs">
+      <DependentUpon>GameWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -110,6 +118,195 @@
       <Project>{7121af0a-b2f7-47cb-9e0c-c4fdfddfff6e}</Project>
       <Name>WiesGameServer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HARTES_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HARTES_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HARTES_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HARTES_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HARTES_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HARTES_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HARTES_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HARTES_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HARTES_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HARTES_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HARTES_11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HARTES_12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HARTES_13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HARTES_71.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HARTES_81.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HARTES_101.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HARTES_121.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HARTES_131.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HARTES_711.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HARTES_811.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HARTES_1011.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HARTES_1211.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HARTES_1311.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KLAVERS_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KLAVERS_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KLAVERS_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KLAVERS_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KLAVERS_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KLAVERS_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KLAVERS_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KLAVERS_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KLAVERS_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KLAVERS_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KLAVERS_11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KLAVERS_12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KLAVERS_13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KOEKE_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KOEKE_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KOEKE_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KOEKE_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KOEKE_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KOEKE_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KOEKE_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KOEKE_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KOEKE_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KOEKE_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KOEKE_11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KOEKE_12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KOEKE_13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KOEKE_14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SCHORPES_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SCHORPES_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SCHORPES_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SCHORPES_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SCHORPES_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SCHORPES_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SCHORPES_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SCHORPES_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SCHORPES_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SCHORPES_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SCHORPES_11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SCHORPES_12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SCHORPES_13.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

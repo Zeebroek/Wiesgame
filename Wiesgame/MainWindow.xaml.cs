@@ -27,7 +27,12 @@ namespace Wiesgame
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Client.Run(ListBoxConsole);
+            Client.Run(this, TextBoxUsername.Text);
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            App.Disconnect();
         }
     }
 }

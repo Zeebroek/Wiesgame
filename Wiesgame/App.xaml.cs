@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using WiesgameCore;
+using Hik.Communication.ScsServices.Client;
 
 namespace Wiesgame
 {
@@ -13,5 +15,15 @@ namespace Wiesgame
     /// </summary>
     public partial class App : Application
     {
+        public static IScsServiceClient<IWiesGameService> Client;
+
+        public static void Disconnect()
+        {
+            if(Client != null)
+            {
+                Client.Disconnect();
+                Client.Dispose();
+            }
+        }
     }
 }

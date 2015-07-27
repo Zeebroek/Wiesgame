@@ -24,58 +24,123 @@ namespace Wiesgame
 {
     public class Client : IWiesGameClient
     {
-        public static void Run(ListBox lb)
+        public static void Run(MainWindow mw, string username)
         {
 
             try
             {
-                var client = ScsServiceClientBuilder.CreateClient<IWiesGameService>(
-                new ScsTcpEndPoint("127.0.0.1", 8001), new Client(lb));
+                App.Client = ScsServiceClientBuilder.CreateClient<IWiesGameService>(
+                new ScsTcpEndPoint("127.0.0.1", 8001), new Client(mw.ListBoxConsole, mw));
 
-                client.Connect();
+                App.Client.Connect();
 
                 try
                 {
-                    if (client.ServiceProxy.Login("Senne", "bullshit"))
+                    if (App.Client.ServiceProxy.Login(username, "bullshit"))
                     {
-                        lb.Dispatcher.BeginInvoke(new Action(() =>
+                        mw.ListBoxConsole.Dispatcher.BeginInvoke(new Action(() =>
                             {
-                                lb.Items.Add("logged in!");
+                                mw.ListBoxConsole.Items.Add("logged in!");
                             }));
-                        
+
                     }
-                } 
-                catch(Exception e)
+                }
+                catch (Exception e)
                 {
-                    lb.Items.Add(e.Message);
+                    mw.ListBoxConsole.Items.Add(e.Message);
                 }
             }
 
             catch (Exception e)
             {
-                lb.Items.Add(e.StackTrace);
+                mw.ListBoxConsole.Items.Add(e.StackTrace);
             }
         }
 
         ListBox ListBox { get; set; }
+        GameWindow GameWindow { get; set; }
+        MainWindow MainWindow { get; set; }
 
 
-        public Client(ListBox lb)
+        public Client(ListBox lb, MainWindow mainWindow)
         {
             this.ListBox = lb;
+            this.MainWindow = mainWindow;
         }
+
+
+
+
+
+
 
         public void ReceiveMessage(string text, string sender)
         {
             Write("[" + sender + "]: " + text);
         }
 
+        public void ReceiveHand(List<Kaart> hand)
+        {
+            try
+            {
+                App.Current.Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    GameWindow.LoadHand(hand);
+                }));
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message + "\n" + e.StackTrace);
+            }
+
+        }
+
+        public void ReceiveModes(List<Spelmode> modes)
+        {
+            App.Current.Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    GameWindow.LoadModes(modes);
+                }));
+        }
+
+        public void ReceiveWinnerMode(Spelmode sm, List<Speler> team)
+        {
+            App.Current.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                GameWindow.LoadNewMode(sm, team);
+            }));
+        }
+
+        public void ReceiveSpelers(List<Speler> spelers, Speler you)
+        {
+            App.Current.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                if (GameWindow == null)
+                {
+                    GameWindow = new GameWindow(this);
+                    MainWindow.Hide();
+                    GameWindow.Show();
+                }
+
+                GameWindow.LoadSpelers(spelers, you);
+            }));
+        }
+
+
+
+
+
+
+
         private void Write(string message)
         {
-            ListBox.Dispatcher.BeginInvoke(new Action(() =>
-                {
-                    ListBox.Items.Add(message);
-                }));
+            if (GameWindow == null)
+                ListBox.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        ListBox.Items.Add(message);
+                    }));
+            else
+                GameWindow.Chatbox.Items.Add(message);
         }
 
 

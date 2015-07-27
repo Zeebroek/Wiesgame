@@ -40,10 +40,10 @@ namespace WiesGameServer
 
         public static void StartServer(ListBox lb)
         {
-            var server = ScsServiceBuilder.CreateService(new ScsTcpEndPoint(PORT));
-            server.AddService<IWiesGameService, Server>(new Server(lb));
+            App.Server = ScsServiceBuilder.CreateService(new ScsTcpEndPoint(PORT));
+            App.Server.AddService<IWiesGameService, Server>(new Server(lb));
 
-            server.Start();
+            App.Server.Start();
 
             lb.Dispatcher.BeginInvoke(new Action(() =>
             {
@@ -53,6 +53,7 @@ namespace WiesGameServer
 
         public void KiesSpelMode(Spelmode sm)
         {
+            Game.CurrentSpel.KiesMode(sm);
         }
 
         public bool Login(string username, string password)
@@ -75,6 +76,10 @@ namespace WiesGameServer
                 {
                     Game = new Game(Spelers);
                     WriteLog("4 players detected: New Game started!");
+                    WriteToAll("Starting new game...");
+                    foreach (Speler s in Spelers)
+                        s.Client.GetClientProxy<IWiesGameClient>().ReceiveSpelers(Spelers, s);
+                    Game.StartSpel();
                 }
             }
 

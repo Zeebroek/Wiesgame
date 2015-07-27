@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Hik.Communication.ScsServices.Service;
 
 namespace WiesGameServer
 {
@@ -13,5 +14,14 @@ namespace WiesGameServer
     /// </summary>
     public partial class App : Application
     {
+        public static IScsServiceApplication Server;
+
+        public static void Disconnect()
+        {
+            if(Server != null)
+            {
+                Server.Stop();
+            }
+        }
     }
 }
