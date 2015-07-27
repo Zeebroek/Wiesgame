@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace WiesgameCore
 {
+    [Serializable]
     public class Slag
     {
         public Spel Spel { get; private set; }

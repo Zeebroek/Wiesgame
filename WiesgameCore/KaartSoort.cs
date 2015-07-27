@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WiesgameCore
 {
+    [Serializable]
     public class KaartSoort
     {
         string naam;

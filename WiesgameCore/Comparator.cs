@@ -10,20 +10,20 @@ namespace WiesgameCore
     {
         public static Speler Winner(Slag slag, Spel spel)
         {
-            KaartSoort first = slag.Kaarten.ElementAt(0).Soort;
+            KaartSoort first = slag.Kaarten.ElementAt(0).Value.Soort;
             KaartSoort troef = spel.Troef;
 
-            Kaart hoogste = slag.Kaarten.ElementAt(0);
+            Kaart hoogste = slag.Kaarten.Values.ElementAt(0);
 
             if (!spel.Spelmode.hasTroef) //Geen rekening me troef
             {
-                foreach (Kaart k in slag.Kaarten.Where(o => o.Soort == first))
+                foreach (Kaart k in slag.Kaarten.Values.Where(o => o.Soort == first))
                     if (k.Nummer > hoogste.Nummer || k.Nummer == 1)
                         hoogste = k;
             }
             else
             { //Wel rekening me troef
-                foreach (Kaart k in slag.Kaarten)
+                foreach (Kaart k in slag.Kaarten.Values)
                 {
                     if (k.Soort != first && k.Soort != troef)
                         continue;
@@ -34,7 +34,7 @@ namespace WiesgameCore
                 }
             }
 
-            return spel.Spelers[slag.Kaarten.IndexOf(hoogste)];
+            return slag.Kaarten.Keys.ElementAt(slag.Kaarten.Values.ToList().IndexOf(hoogste));
         }
 
         public static KeyValuePair<Spelmode, List<Speler>> WinnerMode(Spel spel)

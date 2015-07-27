@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WiesgameCore
 {
+    [Serializable]
     public class Game
     {
         List<Speler> spelers;
@@ -15,9 +16,10 @@ namespace WiesgameCore
         public List<int> Scores { get; set; }
         public Spel CurrentSpel { get; set; }
 
-        public Game()
+        public Game(List<Speler> spelers)
         {
             Scores = new List<int>();
+            Spelers = spelers;
         }
 
         public void StartSpel()

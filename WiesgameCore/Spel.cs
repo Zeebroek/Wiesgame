@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WiesgameCore
 {
+    [Serializable]
     public class Spel
     {
         List<Speler> spelers;
@@ -102,7 +103,13 @@ namespace WiesgameCore
             {
                 if(Spelmode == Spelmode.TROEL)
                 {
-                    Speler s = Kaarten.Where(o => o.Value.Where(o => o.Nummer == 1).Count() == 1).ToDictionary().Keys[0];
+                    Speler s = Kaarten.Keys.ElementAt(0);
+                    foreach(KeyValuePair<Speler, List<Kaart>> kvp in Kaarten)
+                        if(kvp.Value.Where(o => o.Nummer == 1).Count() == 1)
+                        {
+                            s = kvp.Key;
+                            break;
+                        }
                     ReArrangePlayers(s);
                 } 
                 else if(Spelmode == Spelmode.TROELA)
@@ -115,10 +122,11 @@ namespace WiesgameCore
             //spelers[currentSlag.Kaarten.Count].sendturn();
         }
 
-        public void PlayKaart(Speler s, Kaart k)
+        public bool PlayKaart(Speler s, Kaart k)
         {
             if (!CanPlayKaart(k, s))
-                return;
+                return false;
+             
             currentSlag.Kaarten.Add(s, k);
             if(currentSlag.Kaarten.Count == 4)
             {
@@ -138,6 +146,7 @@ namespace WiesgameCore
             {
                 SendTurn();
             }
+            return true;
                 
         
         }

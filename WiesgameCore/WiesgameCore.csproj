@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Scs">
+      <HintPath>..\..\..\..\Scs-Sources\Scs-Binaries\Scs.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +49,8 @@
     <Compile Include="Boek.cs" />
     <Compile Include="Comparator.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="IWiesGameClient.cs" />
+    <Compile Include="IWiesGameService.cs" />
     <Compile Include="Kaart.cs" />
     <Compile Include="KaartSoort.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

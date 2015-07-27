@@ -24,5 +24,16 @@ namespace WiesGameServer
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Server.StartServer(ListBoxConsole);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
     }
 }
